@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Frequently Asked Questions - GoldRush Social Casino. Find answers to common questions about our Wild West social casino platform.">
+    <meta name="keywords" content="FAQ, frequently asked questions, goldrush social casino, help, support, wild west casino">
+    <meta name="author" content="GoldRush Social Casino">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#D4AF37">
+    <title>FAQ - GoldRush Social Casino</title>
+    <link rel="canonical" href="https://goldrushsocial.com/faq.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Condensed:wght@400;700&family=Special+Elite&display=swap');
+
+        :root {
+            /* GoldRush Wild West Palette */
+            --bg-primary: #FDF8F0;
+            --primary: #D4AF37;
+            --secondary: #8B5A2B;
+            --accent: #E5C07B;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --wood-texture: #6B4423;
+            --text-dark: #3D2817;
+            --text-light: #FDF8F0;
+            --saloon-red: #8B1A1A;
+            --bg: #FDF8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .icon-lg {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .icon-xl {
+            width: 2em;
+            height: 2em;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 90, 43, 0.1) 0%, transparent 50%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Floating Dust Particles */
+        .dust-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .dust {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 90, 43, 0.4);
+            border-radius: 50%;
+            animation: float-dust 15s infinite ease-in-out;
+        }
+
+        .dust:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .dust:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .dust:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .dust:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 14s; }
+        .dust:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 16s; }
+        .dust:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 13s; }
+        .dust:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .dust:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 15s; }
+        .dust:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 14s; }
+
+        @keyframes float-dust {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px var(--shadow);
+            border-bottom: 4px solid var(--secondary);
+            border-image: linear-gradient(90deg, var(--secondary), var(--primary), var(--secondary)) 1;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 3px 3px 0px var(--secondary), 0 0 10px rgba(212, 175, 55, 0.5);
+            position: relative;
+            animation: swing-logo 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing-logo {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .logo .icon {
+            color: var(--primary);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #8B5A2B, #6B4423);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            border: 2px solid var(--primary);
+            z-index: 1001;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.2);
+            padding-left: 2rem;
+            border-left-color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--secondary);
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* FAQ Section */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-container {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1.2rem 3rem 1.2rem 1.5rem;
+            border: 3px solid var(--secondary);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            color: var(--secondary);
+            pointer-events: none;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 248, 240, 0.95) 100%);
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .faq-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        .faq-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .faq-item.active::before {
+            transform: scaleY(1);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            user-select: none;
+            position: relative;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .faq-question span {
+            flex: 1;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 2rem;
+            color: var(--text-dark);
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem 2rem;
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #6B4423);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 1;
+            border-top: 6px solid var(--primary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Special Elite', cursive;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            padding-left: 0;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-dark);
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: var(--text-dark);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(253, 248, 240, 0.98);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                max-width: 400px;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 8px 24px var(--shadow);
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+                border: 4px solid var(--secondary);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: block;
+                margin-top: 0.5rem;
+                margin-left: 1rem;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+
+            .page-header {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="dust-particles" aria-hidden="true">
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+    </div>
+
+    <header role="banner">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg class="icon icon-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18L18.82 8 12 10.82 5.18 8 12 4.18zM4 9.32l6 3.18v6.89c-3.32-.89-6-3.53-6-6.89V9.32zm16 0v3.48c0 3.36-2.68 6-6 6.89v-6.89l6-3.18z"/></svg>
+                <span>GoldRush</span>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul class="nav-menu" id="navMenu" role="menubar">
+                    <li class="nav-item" role="none"><a href="index.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+                    <li class="nav-item" role="none"><a href="games.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 12c0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5zm-2.5-9C6.48 3 2 7.48 2 13s4.48 10 10 10 10-4.48 10-10S17.52 3 13 3zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> Games</a></li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="vip-club.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> VIP Club <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></a>
+                        <div class="dropdown-menu">
+                            <a href="rewards.html">Rewards</a>
+                            <a href="events.html">Events</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="none"><a href="shop.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.15.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg> Shop</a></li>
+                    <li class="nav-item" role="none"><a href="support.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Support</a></li>
+                    <li class="nav-item" role="none"><a href="about.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> About</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navMenu">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about GoldRush Social</p>
+    </div>
+
+    <main id="main-content">
+        <section class="section">
+        <div class="search-container">
+            <input type="text" id="faqSearch" class="search-box" placeholder="Search for questions...">
+            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
+                    <span>What is GoldRush Social?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-1" aria-hidden="true">
+                    <p>GoldRush Social is a free-to-play social casino platform where you can enjoy slot games and casino entertainment in demo mode. No real money is required or accepted. All games are purely for entertainment purposes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
+                    <span>Do I need to create an account to play?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
+                    <p>Creating an account is optional but recommended. With an account, you can track your progress, participate in events, access VIP rewards, and save your favorite games.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
+                    <span>Is GoldRush Social free to play?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
+                    <p>Yes! GoldRush Social is completely free to play. All games are available in demo mode, and you'll receive virtual coins to play with. These coins have no real-world value and cannot be exchanged for real money.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
+                    <span>Can I win real money?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
+                    <p>No, GoldRush Social does not offer real money gambling. All gameplay is for entertainment purposes only. Virtual coins and winnings have no monetary value and cannot be converted to real currency.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-5">
+                    <span>How do I get more virtual coins?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
+                    <p>You can earn virtual coins through various methods: daily login bonuses, completing achievements, participating in events, leveling up your VIP status, and occasionally through special promotions. Coins are automatically added to your account.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-6">
+                    <span>What devices can I play on?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-6" aria-hidden="true">
+                    <p>GoldRush Social is accessible on all modern devices including desktop computers, tablets, and smartphones. Our platform is fully responsive and works on Windows, macOS, iOS, and Android devices through your web browser.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-7">
+                    <span>Are the games fair?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-7" aria-hidden="true">
+                    <p>All games on GoldRush Social use random number generators (RNG) to ensure fair and random outcomes. Since this is a demo platform with no real money involved, our focus is purely on providing an entertaining and fair gaming experience.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-8">
+                    <span>How does the VIP Club work?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-8" aria-hidden="true">
+                    <p>The VIP Club rewards loyal players with exclusive benefits. As you play and level up, you'll unlock higher VIP tiers with better rewards, including bonus coins, special events access, exclusive games, and personalized offers.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-9">
+                    <span>Can I play offline?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-9" aria-hidden="true">
+                    <p>No, GoldRush Social requires an active internet connection to play. This allows us to sync your progress, deliver daily bonuses, and provide real-time updates on events and promotions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-10">
+                    <span>What is the minimum age requirement?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-10" aria-hidden="true">
+                    <p>You must be at least 18 years old to use GoldRush Social. While we don't offer real money gambling, we maintain age restrictions to ensure responsible gaming practices.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-11">
+                    <span>How do I report a problem or bug?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-11" aria-hidden="true">
+                    <p>If you encounter any issues, please visit our Support page and use the contact form to report the problem. Include as many details as possible, such as your device type, browser, and steps to reproduce the issue. Our team will investigate and respond as soon as possible.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-12">
+                    <span>Can I delete my account?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-12" aria-hidden="true">
+                    <p>Yes, you can delete your account at any time through your account settings. This action is permanent and will delete all your game progress, virtual coins, and account data. Please contact support if you need assistance with account deletion.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-13">
+                    <span>Do you have customer support?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-13" aria-hidden="true">
+                    <p>Yes, we have a dedicated support team ready to help you. Visit our Support page to access our FAQ, contact form, and other resources. We typically respond to inquiries within 24-48 hours.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-14">
+                    <span>What browsers are supported?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-14" aria-hidden="true">
+                    <p>GoldRush Social works best on modern browsers including Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, and Opera. We recommend using the latest version of your preferred browser for the best experience.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-15">
+                    <span>Are there any restrictions on where I can play?</span>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer" id="faq-answer-15" aria-hidden="true">
+                    <p>GoldRush Social is available in most countries. However, some jurisdictions may have restrictions on social casino platforms. Please check your local laws and regulations. We reserve the right to restrict access from certain regions to comply with applicable laws.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <h3>No Results Found</h3>
+            <p>Sorry, we couldn't find any questions matching your search. Try different keywords or browse all questions above.</p>
+        </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GoldRush Social</h3>
+                <p>Your premier Wild West destination for social casino gaming. Play responsibly and enjoy the thrill of demo slot games.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="cookie.html">Cookie Policy</a>
+                <a href="responsible.html">Responsible Gaming</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="support.html">Support Center</a>
+                <a href="leaderboards.html">Leaderboards</a>
+                <a href="daily-bonus.html">Daily Bonus</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldRush Social Casino. All rights reserved. | For entertainment purposes only. No real money gambling.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            if (!isExpanded) {
+                document.addEventListener('click', function closeMenuOnOutsideClick(e) {
+                    if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.removeEventListener('click', closeMenuOnOutsideClick);
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.focus();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced FAQ Accordion with Accessibility
+        const faqItems = document.querySelectorAll('.faq-item');
+        const noResults = document.getElementById('noResults');
+        
+        faqItems.forEach((item, index) => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const answerId = `faq-answer-${index + 1}`;
+            
+            // Set proper ARIA attributes
+            answer.id = answerId;
+            question.setAttribute('aria-controls', answerId);
+            
+            // Click handler
+            const toggleFAQ = () => {
+                const isActive = item.classList.contains('active');
+                const wasActive = isActive;
+                
+                // Close all FAQs
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    const q = faq.querySelector('.faq-question');
+                    const a = faq.querySelector('.faq-answer');
+                    q.setAttribute('aria-expanded', 'false');
+                    a.setAttribute('aria-hidden', 'true');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!wasActive) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                    answer.setAttribute('aria-hidden', 'false');
+                    
+                    // Smooth scroll to question if needed
+                    setTimeout(() => {
+                        question.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+                }
+            };
+            
+            question.addEventListener('click', toggleFAQ);
+            
+            // Keyboard support
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFAQ();
+                }
+            });
+        });
+
+        // Enhanced Search with Debouncing
+        const searchInput = document.getElementById('faqSearch');
+        let searchTimeout;
+        
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            searchTimeout = setTimeout(() => {
+                let visibleCount = 0;
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    const matches = question.includes(searchTerm) || answer.includes(searchTerm);
+                    
+                    if (searchTerm === '' || matches) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Show/hide no results message
+                if (searchTerm && visibleCount === 0) {
+                    noResults.classList.add('show');
+                } else {
+                    noResults.classList.remove('show');
+                }
+            }, 300);
+        });
+        
+        // Clear search on Escape
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.focus();
+            }
+        });
+
+        // Dropdown Menu Toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('.nav-link');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                dropdownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('active');
+                });
+                
+                dropdownMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

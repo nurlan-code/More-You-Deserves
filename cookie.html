@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - GoldRush Social</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg: #FDF8F0;
+            --primary: #D4AF37;
+            --secondary: #8B5A2B;
+            --accent: #E5C07B;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --text-dark: #2C1810;
+            --text-light: #FDF8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dust Particles Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.5; }
+            50% { transform: translateY(-40px) translateX(-10px); opacity: 0.3; }
+            75% { transform: translateY(-20px) translateX(5px); opacity: 0.4; }
+        }
+
+        .dust-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 15s infinite;
+            opacity: 0.3;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            text-shadow: 2px 2px 4px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: swing 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #8B5A2B, #6B4423);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            border: 2px solid var(--primary);
+            z-index: 1001;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.2);
+            padding-left: 2rem;
+            border-left-color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23D4AF37" opacity="0.3"/></svg>') repeat;
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            text-shadow: 3px 3px 6px var(--shadow);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 248, 240, 0.95) 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px var(--shadow);
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .content-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .content-card ul, .content-card ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .content-card strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .last-updated {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .last-updated p {
+            margin: 0;
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 1;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 20px var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: block;
+                margin-top: 0.5rem;
+                margin-left: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .content-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dust Particles -->
+    <div class="dust-particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="dust-particle" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="dust-particle" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="dust-particle" style="left: 40%; animation-delay: 1s;"></div>
+    <div class="dust-particle" style="left: 50%; animation-delay: 3s;"></div>
+    <div class="dust-particle" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="dust-particle" style="left: 70%; animation-delay: 2.5s;"></div>
+    <div class="dust-particle" style="left: 80%; animation-delay: 4.5s;"></div>
+    <div class="dust-particle" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚜️ GoldRush Social</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li class="dropdown">
+                    <a href="vip-club.html" class="dropdown-link">VIP Club ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="rewards.html">Rewards</a>
+                        <a href="events.html">Events</a>
+                    </div>
+                </li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Cookie Policy</h1>
+        <p>Learn about how we use cookies and similar tracking technologies.</p>
+    </section>
+
+    <section class="section">
+        <div class="content-card">
+            <div class="last-updated">
+                <p><strong>Last Updated:</strong> December 2024</p>
+            </div>
+
+            <h2>1. What Are Cookies?</h2>
+            <p>Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently, as well as to provide information to the owners of the site.</p>
+            <p>Cookies allow a website to recognize your device and store some information about your preferences or past actions. This helps improve your browsing experience and allows the site to provide you with more personalized content.</p>
+
+            <h2>2. How We Use Cookies</h2>
+            <p>GoldRush Social uses cookies and similar tracking technologies to track activity on our platform and hold certain information. Cookies are used for various purposes, including:</p>
+            <ul>
+                <li>To enable certain functions of the platform</li>
+                <li>To provide analytics and track user interactions</li>
+                <li>To store your preferences and settings</li>
+                <li>To enable ad delivery and behavioral advertising</li>
+                <li>To authenticate users and prevent fraud</li>
+                <li>To remember your login status and preferences</li>
+            </ul>
+
+            <h2>3. Types of Cookies We Use</h2>
+            
+            <h3>3.1 Strictly Necessary Cookies</h3>
+            <p>These cookies are essential for you to browse the website and use its features. Without these cookies, services you have asked for cannot be provided. These cookies do not store any personally identifiable information.</p>
+            <p><strong>Examples:</strong> Authentication cookies, security cookies, load balancing session cookies</p>
+
+            <h3>3.2 Performance Cookies</h3>
+            <p>These cookies collect information about how you use our website, such as which pages you visit most often. This data may be used to help optimize our website and make it easier for you to navigate. These cookies don't collect information that identifies you.</p>
+            <p><strong>Examples:</strong> Analytics cookies, preference cookies, targeting cookies</p>
+
+            <h3>3.3 Functionality Cookies</h3>
+            <p>These cookies allow the website to remember choices you make (such as your username, language, or the region you are in) and provide enhanced, personalized features. These cookies can also be used to remember changes you have made to text size, fonts, and other parts of web pages that you can customize.</p>
+            <p><strong>Examples:</strong> User preference cookies, authentication cookies, user interface customization cookies</p>
+
+            <h3>3.4 Targeting/Advertising Cookies</h3>
+            <p>These cookies are used to deliver advertisements that are more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of advertising campaigns. These cookies remember that you have visited our website and may share this information with other organizations such as advertisers.</p>
+            <p><strong>Examples:</strong> Advertising cookies, social media cookies, retargeting cookies</p>
+
+            <h2>4. Third-Party Cookies</h2>
+            <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the platform, deliver advertisements on and through the platform, and so on. These third-party cookies may be placed by:</p>
+            <ul>
+                <li>Analytics services (e.g., Google Analytics)</li>
+                <li>Advertising networks</li>
+                <li>Social media platforms</li>
+                <li>Content delivery networks</li>
+            </ul>
+            <p>We do not control the setting of these cookies, so please check the third-party websites for more information about their cookies and how to manage them.</p>
+
+            <h2>5. How to Control Cookies</h2>
+            <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting your preferences in our Cookie Settings or by configuring your browser settings to accept or refuse cookies.</p>
+            
+            <h3>5.1 Browser Settings</h3>
+            <p>Most web browsers allow some control of most cookies through the browser settings. To find out more about cookies, including how to see what cookies have been set and how to manage and delete them, visit <a href="https://www.allaboutcookies.org" target="_blank" style="color: var(--primary);">www.allaboutcookies.org</a>.</p>
+            
+            <p>Please note that if you choose to disable cookies, some features of our platform may not function properly, and your user experience may be degraded.</p>
+
+            <h3>5.2 Cookie Settings on Our Platform</h3>
+            <p>You can manage your cookie preferences directly on our platform through the Cookie Settings panel, which can be accessed via the footer of our website or through your account settings.</p>
+
+            <h2>6. Cookies We Use</h2>
+            <p>The following is a list of the main cookies we use and their purposes:</p>
+            <ul>
+                <li><strong>Session Cookies:</strong> Temporary cookies that are deleted when you close your browser</li>
+                <li><strong>Persistent Cookies:</strong> Cookies that remain on your device for a set period or until you delete them</li>
+                <li><strong>First-Party Cookies:</strong> Cookies set by our domain</li>
+                <li><strong>Third-Party Cookies:</strong> Cookies set by domains other than ours</li>
+            </ul>
+
+            <h2>7. Do Not Track Signals</h2>
+            <p>Some browsers incorporate a "Do Not Track" (DNT) feature that signals to websites you visit that you do not want to have your online activity tracked. Currently, there is no standard for how DNT signals should be interpreted. As a result, our platform does not currently respond to DNT signals or other mechanisms that provide the ability to exercise choice regarding the collection of personally identifiable information about your online activities.</p>
+
+            <h2>8. Changes to This Cookie Policy</h2>
+            <p>We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our operational requirements. We will notify you of any material changes by posting the new Cookie Policy on this page and updating the "Last Updated" date. You are advised to review this Cookie Policy periodically for any changes.</p>
+
+            <h2>9. More Information</h2>
+            <p>If you would like to find out more about cookies and their use on the internet, you may find the following resources useful:</p>
+            <ul>
+                <li><a href="https://www.allaboutcookies.org" target="_blank" style="color: var(--primary);">All About Cookies</a></li>
+                <li><a href="https://www.youronlinechoices.eu" target="_blank" style="color: var(--primary);">Your Online Choices</a></li>
+            </ul>
+
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions about our use of cookies or this Cookie Policy, please contact us at:</p>
+            <p><strong>Email:</strong> privacy@goldrushsocial.com<br>
+            <strong>Address:</strong> 123 Gold Rush Street, Wild West, WW 12345, United States</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GoldRush Social</h3>
+                <p>Your premier destination for social casino entertainment. Play responsibly and have fun!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="cookie.html">Cookie Policy</a>
+                <a href="responsible.html">Responsible Gaming</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="contact.html">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="support.html">Support Center</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoldRush Social. All rights reserved. This is a demo platform for entertainment purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Dropdown Menu Toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('.dropdown-link') || dropdown.querySelector('a');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                dropdownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('active');
+                });
+                
+                dropdownMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

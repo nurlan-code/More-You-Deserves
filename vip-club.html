@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Join the GoldRush VIP Club - Exclusive Wild West rewards and benefits. Premium tier membership with special perks and bonuses.">
+    <meta name="keywords" content="VIP club, VIP membership, goldrush VIP, exclusive rewards, premium membership, wild west VIP">
+    <meta name="author" content="GoldRush Social Casino">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#D4AF37">
+    <title>VIP Club - GoldRush Social Casino</title>
+    <link rel="canonical" href="https://goldrushsocial.com/vip-club.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Condensed:wght@400;700&family=Special+Elite&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #FDF8F0;
+            --primary: #D4AF37;
+            --secondary: #8B5A2B;
+            --accent: #E5C07B;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --wood-texture: #6B4423;
+            --text-dark: #3D2817;
+            --text-light: #FDF8F0;
+            --saloon-red: #8B1A1A;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .icon-lg {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .icon-xl {
+            width: 2em;
+            height: 2em;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 90, 43, 0.1) 0%, transparent 50%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .dust-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .dust {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 90, 43, 0.4);
+            border-radius: 50%;
+            animation: float-dust 15s infinite ease-in-out;
+        }
+
+        .dust:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .dust:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .dust:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .dust:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 14s; }
+        .dust:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 16s; }
+        .dust:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 13s; }
+        .dust:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .dust:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 15s; }
+        .dust:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 14s; }
+
+        @keyframes float-dust {
+            0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(50px) scale(1.5); opacity: 0; }
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px var(--shadow);
+            border-bottom: 4px solid var(--secondary);
+            border-image: linear-gradient(90deg, var(--secondary), var(--primary), var(--secondary)) 1;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 3px 3px 0px var(--secondary), 0 0 10px rgba(212, 175, 55, 0.5);
+            position: relative;
+            animation: swing-logo 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing-logo {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .logo .icon {
+            color: var(--primary);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #8B5A2B, #6B4423);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            border: 2px solid var(--primary);
+            z-index: 1001;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.2);
+            padding-left: 2rem;
+            border-left-color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--secondary);
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vip-tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vip-tier-card {
+            border: 12px solid;
+            border-image: linear-gradient(135deg, #8B5A2B, #6B4423, #8B5A2B) 1;
+            border-radius: 8px;
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(255,255,255,0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .vip-tier-card::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vip-tier-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 16px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .vip-tier-card:hover::before {
+            opacity: 1;
+        }
+
+        .vip-tier-card.premium {
+            border-image: linear-gradient(135deg, #D4AF37, #E5C07B, #D4AF37) 1;
+        }
+
+        .vip-badge {
+            font-family: 'Special Elite', cursive;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .vip-tier-card h3 {
+            font-family: 'Creepster', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .vip-tier-card .icon {
+            width: 4rem;
+            height: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .vip-benefits {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .vip-benefits li {
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+        }
+
+        .vip-benefits li:last-child {
+            border-bottom: none;
+        }
+
+        .vip-benefits li .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .content-card {
+            border: 12px solid;
+            border-image: linear-gradient(135deg, #8B5A2B, #6B4423, #8B5A2B) 1;
+            border-radius: 8px;
+            background: var(--bg-primary);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(255,255,255,0.3);
+            position: relative;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            z-index: -1;
+        }
+
+        .content-card h2 {
+            font-family: 'Special Elite', cursive;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .content-card h2 .icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+        }
+
+        .content-card p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #6B4423);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 1;
+            border-top: 6px solid var(--primary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Special Elite', cursive;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            padding-left: 0;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-dark);
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: var(--text-dark);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(253, 248, 240, 0.98);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                max-width: 400px;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 8px 24px var(--shadow);
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+                border: 4px solid var(--secondary);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .vip-tier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="dust-particles" aria-hidden="true">
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+    </div>
+
+    <header role="banner">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg class="icon icon-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18L18.82 8 12 10.82 5.18 8 12 4.18zM4 9.32l6 3.18v6.89c-3.32-.89-6-3.53-6-6.89V9.32zm16 0v3.48c0 3.36-2.68 6-6 6.89v-6.89l6-3.18z"/></svg>
+                <span>GoldRush</span>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul class="nav-menu" id="navMenu" role="menubar">
+                    <li class="nav-item" role="none"><a href="index.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+                    <li class="nav-item" role="none"><a href="games.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 12c0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5zm-2.5-9C6.48 3 2 7.48 2 13s4.48 10 10 10 10-4.48 10-10S17.52 3 13 3zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> Games</a></li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="vip-club.html" class="nav-link" role="menuitem" aria-current="page"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> VIP Club <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></a>
+                        <div class="dropdown-menu">
+                            <a href="rewards.html">Rewards</a>
+                            <a href="events.html">Events</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="none"><a href="shop.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.15.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg> Shop</a></li>
+                    <li class="nav-item" role="none"><a href="support.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Support</a></li>
+                    <li class="nav-item" role="none"><a href="about.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> About</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navMenu">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>VIP Club</h1>
+        <p>Join the exclusive Wild West VIP Club and unlock premium rewards</p>
+    </div>
+
+    <main id="main-content">
+        <section class="section">
+            <div class="vip-tier-grid">
+                <div class="vip-tier-card">
+                    <div class="vip-badge">Bronze Tier</div>
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <h3>Bronze</h3>
+                    <ul class="vip-benefits">
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Daily virtual coin bonus</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Access to exclusive games</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Priority support</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Special Wild West badges</li>
+                    </ul>
+                </div>
+
+                <div class="vip-tier-card">
+                    <div class="vip-badge">Silver Tier</div>
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <h3>Silver</h3>
+                    <ul class="vip-benefits">
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> All Bronze benefits</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Enhanced daily bonuses</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Weekly special rewards</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Exclusive event access</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Custom profile themes</li>
+                    </ul>
+                </div>
+
+                <div class="vip-tier-card premium">
+                    <div class="vip-badge" style="color: #D4AF37;">Gold Tier</div>
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <h3>Gold</h3>
+                    <ul class="vip-benefits">
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> All Silver benefits</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Maximum daily bonuses</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Monthly exclusive rewards</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> VIP-only events</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Premium support priority</li>
+                        <li><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Legendary Wild West status</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> How to Join</h2>
+                <p>Joining the VIP Club is easy! Simply start playing games on GoldRush Social. As you play and earn virtual coins, you'll automatically progress through the VIP tiers.</p>
+                <p>Your VIP status is determined by your activity and engagement on the platform. The more you play, the higher your tier becomes, unlocking greater rewards and exclusive Wild West benefits.</p>
+            </div>
+
+            <div class="content-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> VIP Benefits</h2>
+                <p>VIP Club members enjoy a range of exclusive benefits designed to enhance your Wild West gaming experience. From daily virtual coin bonuses to exclusive game access, being a VIP member means more excitement and rewards.</p>
+                <p>All VIP benefits are virtual and have no monetary value. They're designed to make your entertainment experience even more enjoyable in our Wild West social casino environment.</p>
+            </div>
+
+            <div class="content-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Important Note</h2>
+                <p><strong>All VIP benefits and rewards are virtual and have no monetary value.</strong> They cannot be exchanged for real money or real-world goods. VIP Club membership is free and all benefits are provided for entertainment purposes only as part of our demo-mode gaming experience.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GoldRush Social</h3>
+                <p>Your premier Wild West destination for social casino gaming. Play responsibly and enjoy the thrill of demo slot games.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="cookie.html">Cookie Policy</a>
+                <a href="responsible.html">Responsible Gaming</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="support.html">Support Center</a>
+                <a href="leaderboards.html">Leaderboards</a>
+                <a href="daily-bonus.html">Daily Bonus</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldRush Social Casino. All rights reserved. | For entertainment purposes only. No real money gambling.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            if (!isExpanded) {
+                document.addEventListener('click', function closeMenuOnOutsideClick(e) {
+                    if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.removeEventListener('click', closeMenuOnOutsideClick);
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.focus();
+            }
+        });
+
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Dropdown Menu Toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('.nav-link');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                dropdownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+                
+                // Keep dropdown open when clicking inside menu
+                dropdownMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+        
+        // Close dropdown on Escape key (keep existing escape handler)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

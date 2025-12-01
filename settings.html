@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Manage your account settings at GoldRush Social Casino. Customize your preferences, notifications, and account details.">
+    <meta name="keywords" content="settings, account settings, preferences, profile, goldrush settings">
+    <meta name="author" content="GoldRush Social Casino">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#D4AF37">
+    <title>Settings - GoldRush Social Casino</title>
+    <link rel="canonical" href="https://goldrushsocial.com/settings.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Condensed:wght@400;700&family=Special+Elite&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* GoldRush Wild West Palette */
+            --bg-primary: #FDF8F0;
+            --primary: #D4AF37;
+            --secondary: #8B5A2B;
+            --accent: #E5C07B;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --wood-texture: #6B4423;
+            --text-dark: #3D2817;
+            --text-light: #FDF8F0;
+            --saloon-red: #8B1A1A;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .icon-lg {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .icon-xl {
+            width: 2em;
+            height: 2em;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 90, 43, 0.1) 0%, transparent 50%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Floating Dust Particles */
+        .dust-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .dust {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 90, 43, 0.4);
+            border-radius: 50%;
+            animation: float-dust 15s infinite ease-in-out;
+        }
+
+        .dust:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .dust:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .dust:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .dust:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 14s; }
+        .dust:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 16s; }
+        .dust:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 13s; }
+        .dust:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .dust:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 15s; }
+        .dust:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 14s; }
+
+        @keyframes float-dust {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px var(--shadow);
+            border-bottom: 4px solid var(--secondary);
+            border-image: linear-gradient(90deg, var(--secondary), var(--primary), var(--secondary)) 1;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 3px 3px 0px var(--secondary), 0 0 10px rgba(212, 175, 55, 0.5);
+            position: relative;
+            animation: swing-logo 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing-logo {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .logo .icon {
+            color: var(--primary);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #8B5A2B, #6B4423);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            border: 2px solid var(--primary);
+            z-index: 1001;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.2);
+            padding-left: 2rem;
+            border-left-color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--secondary);
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Settings Card */
+        .settings-card {
+            border: 12px solid;
+            border-image: linear-gradient(135deg, #8B5A2B, #6B4423, #8B5A2B) 1;
+            border-radius: 8px;
+            background: var(--bg-primary);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 8px 24px var(--shadow),
+                inset 0 2px 4px rgba(255,255,255,0.3),
+                inset 0 -2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .settings-card::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            z-index: -1;
+        }
+
+        .settings-card h2 {
+            font-family: 'Special Elite', cursive;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .settings-card h2 .icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid rgba(139, 90, 43, 0.2);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-label {
+            flex: 1;
+        }
+
+        .setting-label h3 {
+            font-family: 'Special Elite', cursive;
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .setting-label p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--secondary);
+            transition: 0.3s;
+            border-radius: 34px;
+            border: 3px solid var(--wood-texture);
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 3px;
+            background-color: var(--bg-primary);
+            transition: 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Select Dropdown */
+        .setting-select {
+            padding: 0.75rem 1.5rem;
+            border: 3px solid var(--secondary);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .setting-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Save Button */
+        .save-button {
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border: 3px solid var(--secondary);
+            border-radius: 50px;
+            color: var(--text-dark);
+            font-family: 'Special Elite', cursive;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            margin-top: 2rem;
+            text-transform: uppercase;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .save-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+        }
+
+        .save-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #6B4423);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 1;
+            border-top: 6px solid var(--primary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Special Elite', cursive;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            padding-left: 0;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-dark);
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: var(--text-dark);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(253, 248, 240, 0.98);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                max-width: 400px;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 8px 24px var(--shadow);
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+                border: 4px solid var(--secondary);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .settings-card {
+                padding: 2rem;
+            }
+
+            .setting-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .setting-select {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .settings-card {
+                padding: 1.5rem;
+            }
+
+            .settings-card h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Toast Notification System */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: linear-gradient(135deg, var(--secondary), #6B4423);
+            color: var(--text-light);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 3px var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 300px;
+            max-width: 400px;
+            opacity: 0;
+            transform: translateX(400px);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: auto;
+            position: relative;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-left: 4px solid #10b981;
+        }
+
+        .toast.error {
+            border-left: 4px solid #ef4444;
+        }
+
+        .toast.info {
+            border-left: 4px solid var(--primary);
+        }
+
+        .toast-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .toast-message {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+            opacity: 0.7;
+        }
+
+        .toast-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Loading Spinner */
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--text-light);
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="dust-particles" aria-hidden="true">
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+    </div>
+
+    <header role="banner">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg class="icon icon-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18L18.82 8 12 10.82 5.18 8 12 4.18zM4 9.32l6 3.18v6.89c-3.32-.89-6-3.53-6-6.89V9.32zm16 0v3.48c0 3.36-2.68 6-6 6.89v-6.89l6-3.18z"/></svg>
+                <span>GoldRush</span>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul class="nav-menu" id="navMenu" role="menubar">
+                    <li class="nav-item" role="none"><a href="index.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+                    <li class="nav-item" role="none"><a href="games.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 12c0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5zm-2.5-9C6.48 3 2 7.48 2 13s4.48 10 10 10 10-4.48 10-10S17.52 3 13 3zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> Games</a></li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="vip-club.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> VIP Club <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></a>
+                        <div class="dropdown-menu">
+                            <a href="rewards.html">Rewards</a>
+                            <a href="events.html">Events</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="none"><a href="shop.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.15.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg> Shop</a></li>
+                    <li class="nav-item" role="none"><a href="support.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Support</a></li>
+                    <li class="nav-item" role="none"><a href="about.html" class="nav-link" role="menuitem"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> About</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navMenu">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Settings</h1>
+        <p>Manage your account preferences and settings</p>
+    </div>
+
+    <main id="main-content">
+        <section class="section">
+            <div class="settings-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg> Account Settings</h2>
+                
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Display Name</h3>
+                        <p>Your name as shown to other players</p>
+                    </div>
+                    <input type="text" class="setting-select" value="Wild West Player" style="border: 3px solid var(--secondary); padding: 0.75rem 1.5rem; border-radius: 8px; background: var(--bg-primary);">
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Email Address</h3>
+                        <p>Used for account recovery and notifications</p>
+                    </div>
+                    <input type="email" class="setting-select" value="player@goldrushsocial.com" style="border: 3px solid var(--secondary); padding: 0.75rem 1.5rem; border-radius: 8px; background: var(--bg-primary);">
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Language</h3>
+                        <p>Choose your preferred language</p>
+                    </div>
+                    <select class="setting-select">
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                        <option>German</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg> Notifications</h2>
+                
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Email Notifications</h3>
+                        <p>Receive updates and promotions via email</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Daily Bonus Reminder</h3>
+                        <p>Get notified when your daily bonus is available</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Event Notifications</h3>
+                        <p>Stay informed about special events and tournaments</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Achievement Alerts</h3>
+                        <p>Get notified when you unlock achievements</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg> Privacy & Security</h2>
+                
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Profile Visibility</h3>
+                        <p>Control who can see your profile and stats</p>
+                    </div>
+                    <select class="setting-select">
+                        <option>Public</option>
+                        <option>Friends Only</option>
+                        <option>Private</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Two-Factor Authentication</h3>
+                        <p>Add an extra layer of security to your account</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Game Preferences</h2>
+                
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Sound Effects</h3>
+                        <p>Enable or disable game sound effects</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Background Music</h3>
+                        <p>Play background music during games</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Animation Quality</h3>
+                        <p>Adjust animation quality for better performance</p>
+                    </div>
+                    <select class="setting-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <h3>Auto-Play</h3>
+                        <p>Automatically spin reels (requires manual stop)</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="save-button" id="saveButton">Save Settings</button>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GoldRush Social</h3>
+                <p>Your premier Wild West destination for social casino gaming. Play responsibly and enjoy the thrill of demo slot games.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="cookie.html">Cookie Policy</a>
+                <a href="responsible.html">Responsible Gaming</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="support.html">Support Center</a>
+                <a href="leaderboards.html">Leaderboards</a>
+                <a href="daily-bonus.html">Daily Bonus</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldRush Social Casino. All rights reserved. | For entertainment purposes only. No real money gambling.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            if (!isExpanded) {
+                document.addEventListener('click', function closeMenuOnOutsideClick(e) {
+                    if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.removeEventListener('click', closeMenuOnOutsideClick);
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.focus();
+            }
+        });
+
+        // Toast Notification System
+        function showToast(message, type = 'info', title = '') {
+            let container = document.getElementById('toastContainer');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'toast-container';
+                container.id = 'toastContainer';
+                container.setAttribute('aria-live', 'polite');
+                container.setAttribute('aria-atomic', 'true');
+                document.body.appendChild(container);
+            }
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const icons = {
+                success: '<svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>',
+                error: '<svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>',
+                info: '<svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+            };
+            
+            const titles = {
+                success: title || 'Success!',
+                error: title || 'Error!',
+                info: title || 'Info'
+            };
+            
+            toast.innerHTML = `
+                ${icons[type] || icons.info}
+                <div class="toast-content">
+                    <div class="toast-title">${titles[type]}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close" aria-label="Close notification">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => toast.classList.add('show'), 10);
+            
+            const closeBtn = toast.querySelector('.toast-close');
+            const closeToast = () => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            };
+            
+            closeBtn.addEventListener('click', closeToast);
+            
+            setTimeout(closeToast, type === 'error' ? 5000 : 4000);
+        }
+
+        // Save Button with Loading State
+        const saveButton = document.getElementById('saveButton');
+        if (saveButton) {
+            saveButton.addEventListener('click', () => {
+                if (!saveButton.classList.contains('btn-loading')) {
+                    saveButton.classList.add('btn-loading');
+                    saveButton.disabled = true;
+                    
+                    // Simulate save process
+                    setTimeout(() => {
+                        saveButton.classList.remove('btn-loading');
+                        saveButton.textContent = 'Settings Saved!';
+                        saveButton.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                        showToast('Your settings have been saved successfully!', 'success', 'Settings Saved');
+                        
+                        setTimeout(() => {
+                            saveButton.textContent = 'Save Settings';
+                            saveButton.style.background = 'linear-gradient(135deg, var(--primary), var(--accent))';
+                            saveButton.disabled = false;
+                        }, 2000);
+                    }, 1000);
+                }
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Dropdown Menu Toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('.nav-link');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                dropdownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('active');
+                });
+                
+                dropdownMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

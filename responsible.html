@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsible Gaming - GoldRush Social</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg: #FDF8F0;
+            --primary: #D4AF37;
+            --secondary: #8B5A2B;
+            --accent: #E5C07B;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --text-dark: #2C1810;
+            --text-light: #FDF8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dust Particles Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.5; }
+            50% { transform: translateY(-40px) translateX(-10px); opacity: 0.3; }
+            75% { transform: translateY(-20px) translateX(5px); opacity: 0.4; }
+        }
+
+        .dust-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 15s infinite;
+            opacity: 0.3;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            text-shadow: 2px 2px 4px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: swing 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #8B5A2B, #6B4423);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--shadow), inset 0 2px 4px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            border: 2px solid var(--primary);
+            z-index: 1001;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.2);
+            padding-left: 2rem;
+            border-left-color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23D4AF37" opacity="0.3"/></svg>') repeat;
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            text-shadow: 3px 3px 6px var(--shadow);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 248, 240, 0.95) 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px var(--shadow);
+            border: 3px solid var(--secondary);
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .content-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .content-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-card h2 .icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+        }
+
+        .content-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .content-card ul, .content-card ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .content-card strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .resource-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .resource-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 1;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--secondary) 0%, #6B4423 100%);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 20px var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: block;
+                margin-top: 0.5rem;
+                margin-left: 1rem;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .content-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dust Particles -->
+    <div class="dust-particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="dust-particle" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="dust-particle" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="dust-particle" style="left: 40%; animation-delay: 1s;"></div>
+    <div class="dust-particle" style="left: 50%; animation-delay: 3s;"></div>
+    <div class="dust-particle" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="dust-particle" style="left: 70%; animation-delay: 2.5s;"></div>
+    <div class="dust-particle" style="left: 80%; animation-delay: 4.5s;"></div>
+    <div class="dust-particle" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚜️ GoldRush Social</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li class="dropdown">
+                    <a href="vip-club.html" class="dropdown-link">VIP Club ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="rewards.html">Rewards</a>
+                        <a href="events.html">Events</a>
+                    </div>
+                </li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Responsible Gaming</h1>
+        <p>Your well-being is our priority. Play responsibly and enjoy the fun.</p>
+    </section>
+
+    <section class="section">
+        <div class="content-card">
+            <div class="warning-box">
+                <p>⚠️ Important: GoldRush Social is a free-to-play social casino platform. No real money is required or accepted. All games are for entertainment purposes only. However, we are committed to promoting responsible gaming practices.</p>
+            </div>
+
+            <h2>Our Commitment to Responsible Gaming</h2>
+            <p>At GoldRush Social, we are committed to providing a safe and enjoyable gaming environment. While our platform operates in a demo mode with no real money involved, we recognize the importance of responsible gaming practices and the potential risks associated with gaming behavior.</p>
+            <p>We are dedicated to promoting responsible gaming and providing resources to help our users maintain a healthy relationship with gaming.</p>
+
+            <h2>What is Responsible Gaming?</h2>
+            <p>Responsible gaming means enjoying our platform as a form of entertainment while maintaining control over your gaming activities. It involves:</p>
+            <ul>
+                <li>Playing for fun and entertainment, not as a way to make money or escape problems</li>
+                <li>Setting limits on time and engagement</li>
+                <li>Recognizing when gaming may be affecting your daily life</li>
+                <li>Knowing that virtual coins have no real-world value</li>
+                <li>Understanding that outcomes are random and based on chance</li>
+            </ul>
+
+            <h2>Setting Limits</h2>
+            <p>Even though GoldRush Social is a free-to-play platform, we encourage you to set personal limits for your gaming sessions:</p>
+            <ul>
+                <li><strong>Time Limits:</strong> Set a timer or schedule breaks during your gaming sessions</li>
+                <li><strong>Session Limits:</strong> Decide in advance how long you want to play and stick to it</li>
+                <li><strong>Frequency Limits:</strong> Take regular breaks between gaming sessions</li>
+            </ul>
+
+            <h2>Recognizing Problem Gaming</h2>
+            <p>It's important to be aware of the signs that gaming may be becoming problematic. If you notice any of these signs, we encourage you to seek help:</p>
+            <ul>
+                <li>Gaming for longer than intended</li>
+                <li>Feeling restless or irritable when not gaming</li>
+                <li>Gaming as a way to escape from problems or relieve feelings of helplessness or anxiety</li>
+                <li>Trying to cut back or stop gaming but being unable to do so</li>
+                <li>Neglecting work, school, or family responsibilities due to gaming</li>
+                <li>Lying to family members or others about the extent of your gaming</li>
+                <li>Jeopardizing relationships, jobs, or opportunities because of gaming</li>
+            </ul>
+            <p>Remember: Even though no real money is involved, excessive gaming can still impact your daily life and well-being.</p>
+
+            <h2>Age Restrictions</h2>
+            <div class="info-box">
+                <p>You must be at least 18 years old to use GoldRush Social. We do not knowingly collect information from individuals under the age of 18. If we discover that we have collected information from a minor, we will delete that information immediately.</p>
+            </div>
+
+            <h2>Self-Exclusion</h2>
+            <p>If you feel that you need to take a break from gaming, you can:</p>
+            <ul>
+                <li>Delete your account through your account settings</li>
+                <li>Contact our support team for assistance with account management</li>
+                <li>Use browser extensions or parental control software to limit access to gaming sites</li>
+            </ul>
+            <p>If you choose to delete your account, all your game progress, virtual coins, and account data will be permanently removed.</p>
+
+            <h2>Resources and Support</h2>
+            <p>If you or someone you know is struggling with gaming behavior, help is available. Here are some resources:</p>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>GamCare</h4>
+                    <p>Confidential support and advice for anyone affected by problem gambling.</p>
+                    <a href="https://www.gamcare.org.uk" target="_blank">Visit GamCare</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>Gamblers Anonymous</h4>
+                    <p>A fellowship of men and women who share their experience, strength, and hope with each other.</p>
+                    <a href="https://www.gamblersanonymous.org" target="_blank">Visit GA</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>National Council on Problem Gambling</h4>
+                    <p>24/7 confidential help for problem gambling in the United States.</p>
+                    <a href="https://www.ncpgambling.org" target="_blank">Visit NCPG</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>BeGambleAware</h4>
+                    <p>Independent charity providing information, advice, and support for anyone affected by problem gambling.</p>
+                    <a href="https://www.begambleaware.org" target="_blank">Visit BeGambleAware</a>
+                </div>
+            </div>
+
+            <h2>Our Platform Features</h2>
+            <p>While GoldRush Social operates in demo mode, we include features designed to promote healthy gaming:</p>
+            <ul>
+                <li>Clear messaging that this is a demo platform with no real money involved</li>
+                <li>Educational content about responsible gaming</li>
+                <li>Age verification requirements</li>
+                <li>Easy account deletion options</li>
+                <li>Resources and links to support organizations</li>
+            </ul>
+
+            <h2>Questions or Concerns?</h2>
+            <p>If you have any questions about responsible gaming or our platform, please don't hesitate to contact us:</p>
+            <p><strong>Email:</strong> support@goldrushsocial.com<br>
+            <strong>Support:</strong> Visit our <a href="support.html" style="color: var(--primary);">Support Center</a></p>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <p><strong>Remember:</strong> Gaming should be fun and entertaining. If gaming stops being fun or starts causing problems in your life, it's time to take a break and seek help if needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GoldRush Social</h3>
+                <p>Your premier destination for social casino entertainment. Play responsibly and have fun!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="cookie.html">Cookie Policy</a>
+                <a href="responsible.html">Responsible Gaming</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="contact.html">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="support.html">Support Center</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoldRush Social. All rights reserved. This is a demo platform for entertainment purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Dropdown Menu Toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('.dropdown-link') || dropdown.querySelector('a');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                dropdownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('active');
+                });
+                
+                dropdownMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

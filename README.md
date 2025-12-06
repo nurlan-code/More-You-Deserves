@@ -1,4 +1,4 @@
-# GoldRush Social Casino - Wild West Theme
+# More You Deserves Social Casino - Wild West Theme
 
 Tam funksional, dizaynlı və responsiv sosial casino saytı. Bu sayt demo formatda slot oyunları təklif edir.
 

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="404 - Page Not Found. The page you're looking for doesn't exist.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Page Not Found | More You Deserves Social Casino</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Condensed:wght@400;700&family=Special+Elite&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #FDF8F0;
+            --primary: #D4AF37;
+            --secondary: #8B5A2B;
+            --accent: #E5C07B;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --text-dark: #3D2817;
+            --text-light: #FDF8F0;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 90, 43, 0.1) 0%, transparent 50%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .dust-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .dust {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 90, 43, 0.4);
+            border-radius: 50%;
+            animation: float-dust 15s infinite ease-in-out;
+        }
+
+        .dust:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .dust:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .dust:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .dust:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 14s; }
+        .dust:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 16s; }
+        .dust:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 13s; }
+        .dust:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .dust:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 15s; }
+        .dust:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 14s; }
+
+        @keyframes float-dust {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .error-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .error-content {
+            background: var(--bg-primary);
+            border: 12px solid;
+            border-image: linear-gradient(135deg, #8B5A2B, #6B4423, #8B5A2B) 1;
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            box-shadow: 
+                0 8px 24px var(--shadow),
+                inset 0 2px 4px rgba(255,255,255,0.3),
+                inset 0 -2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .error-content::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            z-index: -1;
+        }
+
+        .error-icon {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            animation: swing-logo 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing-logo {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .error-code {
+            font-family: 'Creepster', cursive;
+            font-size: 8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            animation: gold-shine 3s ease-in-out infinite;
+        }
+
+        @keyframes gold-shine {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .error-title {
+            font-family: 'Special Elite', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .error-message {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            margin: 0.5rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-dark);
+            border: 3px solid var(--secondary);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4), inset 0 2px 4px rgba(255,255,255,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6), inset 0 2px 4px rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(139, 90, 43, 0.9);
+            color: var(--text-light);
+            border: 3px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-title {
+                font-size: 2rem;
+            }
+            .error-message {
+                font-size: 1.1rem;
+            }
+            .error-content {
+                padding: 3rem 2rem;
+            }
+            .error-icon {
+                font-size: 5rem;
+            }
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+            .error-title {
+                font-size: 1.5rem;
+            }
+            .error-message {
+                font-size: 1rem;
+            }
+            .error-content {
+                padding: 2rem 1.5rem;
+            }
+            .error-icon {
+                font-size: 4rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dust-particles" aria-hidden="true">
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+    </div>
+
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-icon">🤠</div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                Oops! The page you're looking for seems to have wandered off into the Wild West. 
+                It might have been moved, deleted, or never existed in this frontier.
+            </p>
+            <p class="error-message" style="font-size: 1rem; margin-top: 1rem;">
+                Don't worry, partner! You can always return to our home base and continue your gaming adventure!
+            </p>
+            <div style="margin-top: 2.5rem;">
+                <a href="index.html" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Return Home
+                </a>
+                <a href="games.html" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                    </svg>
+                    Play Games
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Browse our collection of Wild West themed demo slot games. Play classic slots, table games, and more - all 100% free!">
-    <meta name="keywords" content="slot games, casino games, demo slots, wild west slots, gold rush games, free games, table games">
-    <meta name="author" content="GoldRush Social Casino">
+    <meta name="keywords" content="slot games, casino games, demo slots, wild west slots, more you deserves games, free games, table games">
+    <meta name="author" content="More You Deserves Social Casino Games Platform">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#D4AF37">
-    <title>Games - GoldRush Social Casino</title>
-    <link rel="canonical" href="https://goldrushsocial.com/games.html">
+    <title>Games - More You Deserves Social Casino Games Platform</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="canonical" href="https://moreyoudeserves.com/games.html">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Condensed:wght@400;700&family=Special+Elite&display=swap');
         
@@ -20,7 +21,7 @@
         }
 
         :root {
-            /* GoldRush Wild West Palette */
+            /* More You Deserves Wild West Palette */
             --bg-primary: #FDF8F0;
             --primary: #D4AF37;
             --secondary: #8B5A2B;
@@ -165,6 +166,12 @@
             position: relative;
             animation: swing-logo 3s ease-in-out infinite;
             transform-origin: top center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         @keyframes swing-logo {
@@ -655,6 +662,138 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* Game Demo Styles */
+        .game-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid #ffd700;
+        }
+
+        .game-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .game-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: 15px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 215, 0, 0.3);
+            border-top: 5px solid #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .control-button {
+            background: linear-gradient(145deg, #34495e, #2c3e50);
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .control-button:hover {
+            background: linear-gradient(145deg, #ffd700, #f39c12);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: none;
+        }
+
+        .fullscreen-overlay.active {
+            display: block;
+        }
+
+        .fullscreen-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .fullscreen-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10001;
+        }
+
+        .fullscreen-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -675,8 +814,8 @@
     <header role="banner">
         <div class="header-container">
             <a href="index.html" class="logo">
-                <svg class="icon icon-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18L18.82 8 12 10.82 5.18 8 12 4.18zM4 9.32l6 3.18v6.89c-3.32-.89-6-3.53-6-6.89V9.32zm16 0v3.48c0 3.36-2.68 6-6 6.89v-6.89l6-3.18z"/></svg>
-                <span>GoldRush</span>
+                <img src="./images/logo.png" alt="More You Deserves Logo">
+                <span>More You Deserves</span>
             </a>
             <nav role="navigation" aria-label="Main navigation">
                 <ul class="nav-menu" id="navMenu" role="menubar">
@@ -707,6 +846,40 @@
 
     <main id="main-content">
         <section class="section" id="slots">
+            <!-- Slot Game Demo -->
+            <div class="game-container">
+                <h2 style="text-align: center; font-family: 'Special Elite', cursive; font-size: 2rem; color: var(--secondary); margin-bottom: 1.5rem;">🎰 Slot Game Demo</h2>
+                <div class="game-wrapper">
+                    <div class="loading-overlay" id="loadingOverlay">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-text">Loading Olympus Wins...</div>
+                    </div>
+                    <iframe 
+                        id="gameFrame"
+                        class="game-iframe"
+                        src="https://released.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=moonprincessstargazing&lang=en_GB&practice=1&channel=desktop&demo=2"
+                        allow="fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="game-controls">
+                    <button class="control-button" onclick="refreshGame()">🔄 Refresh Game</button>
+                    <button class="control-button" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+                    <button class="control-button" onclick="toggleSound()">🔊 Sound</button>
+                </div>
+            </div>
+
+            <!-- Fullscreen Overlay -->
+            <div class="fullscreen-overlay" id="fullscreenOverlay">
+                <iframe 
+                    id="fullscreenFrame"
+                    class="fullscreen-iframe"
+                    allow="fullscreen"
+                    allowfullscreen>
+                </iframe>
+                <button class="fullscreen-close" onclick="exitFullscreen()">✕ Close</button>
+            </div>
+
             <div class="category-filter">
                 <button class="filter-btn active" data-category="all">All Games</button>
                 <button class="filter-btn" data-category="slots">Slots</button>
@@ -889,7 +1062,7 @@
     <footer role="contentinfo">
         <div class="footer-container">
             <div class="footer-section">
-                <h3>GoldRush Social</h3>
+                <h3>More You Deserves Social Casino</h3>
                 <p>Your premier Wild West destination for social casino gaming. Play responsibly and enjoy the thrill of demo slot games.</p>
             </div>
             <div class="footer-section">
@@ -914,8 +1087,14 @@
                 <a href="settings.html">Settings</a>
             </div>
         </div>
+        <div class="footer-redirects" style="text-align: center; margin: 2rem 0; padding: 2rem 0; border-top: 2px solid rgba(212, 175, 55, 0.3);">
+            <a href="https://gamblinghelpline.co.nz/" target="_blank" rel="noopener noreferrer" style="color: var(--text-light); text-decoration: none; margin: 0 1rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-light)'">Gambling Helpline NZ</a>
+            <a href="https://responsiblegambling.org/" target="_blank" rel="noopener noreferrer" style="color: var(--text-light); text-decoration: none; margin: 0 1rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-light)'">Responsible Gambling</a>
+            <a href="https://www.health.govt.nz/regulation-legislation/mental-health-and-addiction/gambling-act" target="_blank" rel="noopener noreferrer" style="color: var(--text-light); text-decoration: none; margin: 0 1rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-light)'">NZ Ministry of Health</a>
+        </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 GoldRush Social Casino. All rights reserved. | For entertainment purposes only. No real money gambling.</p>
+            <p>&copy; 2025 More You Deserves Social Casino Games Platform.</p>
+            <p style="margin-top: 0.5rem;">18+ Only | No Real Money | Play Responsibly</p>
         </div>
     </footer>
 
@@ -1059,6 +1238,187 @@
                     });
                 }
             });
+        });
+
+        // Game Demo JavaScript
+        let gameLoaded = false;
+        let soundEnabled = true;
+
+        // Handle iframe loading
+        const gameFrame = document.getElementById('gameFrame');
+        if (gameFrame) {
+            gameFrame.addEventListener('load', function() {
+                setTimeout(() => {
+                    const loadingOverlay = document.getElementById('loadingOverlay');
+                    if (loadingOverlay) {
+                        loadingOverlay.style.display = 'none';
+                        gameLoaded = true;
+                    }
+                }, 2000); // Show loading for 2 seconds minimum
+            });
+        }
+
+        // Refresh game function
+        function refreshGame() {
+            const gameFrame = document.getElementById('gameFrame');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            
+            if (gameFrame && loadingOverlay) {
+                loadingOverlay.style.display = 'flex';
+                gameLoaded = false;
+                
+                // Reload iframe
+                gameFrame.src = gameFrame.src;
+            }
+        }
+
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const fullscreenFrame = document.getElementById('fullscreenFrame');
+            const originalFrame = document.getElementById('gameFrame');
+            
+            if (overlay && fullscreenFrame && originalFrame) {
+                overlay.classList.add('active');
+                fullscreenFrame.src = originalFrame.src;
+                
+                // Try to enter browser fullscreen
+                if (overlay.requestFullscreen) {
+                    overlay.requestFullscreen();
+                } else if (overlay.webkitRequestFullscreen) {
+                    overlay.webkitRequestFullscreen();
+                } else if (overlay.msRequestFullscreen) {
+                    overlay.msRequestFullscreen();
+                }
+            }
+        }
+
+        function exitFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            if (overlay) {
+                overlay.classList.remove('active');
+                
+                // Exit browser fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // Handle ESC key to exit fullscreen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                exitFullscreen();
+            }
+        });
+
+        // Handle fullscreen change events
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) {
+                exitFullscreen();
+            }
+        });
+
+        document.addEventListener('webkitfullscreenchange', function() {
+            if (!document.webkitFullscreenElement) {
+                exitFullscreen();
+            }
+        });
+
+        document.addEventListener('msfullscreenchange', function() {
+            if (!document.msFullscreenElement) {
+                exitFullscreen();
+            }
+        });
+
+        // Sound toggle function
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const buttons = document.querySelectorAll('.control-button');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Sound')) {
+                    button.textContent = soundEnabled ? '🔊 Sound' : '🔇 Sound';
+                }
+            });
+            
+            // Try to communicate with iframe about sound (limited by CORS)
+            try {
+                const gameFrame = document.getElementById('gameFrame');
+                if (gameFrame && gameFrame.contentWindow) {
+                    gameFrame.contentWindow.postMessage({
+                        action: 'toggleSound',
+                        enabled: soundEnabled
+                    }, '*');
+                }
+            } catch (e) {
+                console.log('Cannot control iframe sound due to CORS restrictions');
+            }
+        }
+
+        // Add floating particles effect
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            setInterval(createParticles, 3000);
+        });
+
+        function createParticles() {
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.innerHTML = ['⚡', '💫', '✨', '🌟'][Math.floor(Math.random() * 4)];
+                    particle.style.position = 'fixed';
+                    particle.style.left = Math.random() * window.innerWidth + 'px';
+                    particle.style.top = window.innerHeight + 'px';
+                    particle.style.fontSize = Math.random() * 20 + 15 + 'px';
+                    particle.style.pointerEvents = 'none';
+                    particle.style.zIndex = '1';
+                    particle.style.animation = 'floatUp 4s ease-out forwards';
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 4000);
+                }, i * 1000);
+            }
+        }
+
+        // Add floating animation CSS
+        const particleStyle = document.createElement('style');
+        particleStyle.textContent = `
+            @keyframes floatUp {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(particleStyle);
+
+        // Add error handling for iframe
+        window.addEventListener('message', function(event) {
+            // Handle messages from iframe if needed
+            if (event.data && event.data.type === 'gameError') {
+                console.log('Game error:', event.data.message);
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.innerHTML = `
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚠</div>
+                            <div style="color: #dc3545; font-size: 1.2rem; margin-bottom: 1rem;">Game Loading Error</div>
+                            <button onclick="refreshGame()" style="background: #ffd700; color: #000; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold;">Try Again</button>
+                        </div>
+                    `;
+                }
+            }
         });
     </script>
 </body>
